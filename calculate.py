@@ -10,11 +10,16 @@ class Calculator:
     def add_record(self, next_record: 'Record'):
         self.records.append(next_record)
     
-    def get_today_stats():
+    def get_today_stats(self):
+        d_today = dt.date.today()
+        return sum(i.amount for i in self.records if i.date == d_today)
 
-    def get_week_stats():
-           
+            
 
+
+    # def get_week_stats():
+        
+    # вывод результата списка
     # def show_records(self):
     #     print(self.records[0].date)
     
@@ -45,10 +50,11 @@ limit = 100
 cash_calculator = Calculator(limit)
 cash_calculator.add_record(r1)
 
-cash_calculator.show_records()
+# "вывод результата списка"
+# cash_calculator.show_records()
 
-# cash_calculator.add_record(r2)
-# cash_calculator.add_record(r3)
+cash_calculator.add_record(r2)
+cash_calculator.add_record(r3)
 
 # calories_calculator.add_record(r4)
 # calories_calculator.add_record(r5)
@@ -57,4 +63,5 @@ cash_calculator.show_records()
     # вывод результатов
 # print(cash_calculator.get_today_cash_remained('rub'))
 # print(calories_calculator.get_calories_remained())
+print(cash_calculator.get_today_stats())
 
